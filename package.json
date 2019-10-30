@@ -1,22 +1,20 @@
 {
-  "name": "intro-to-webpack-modules",
+  "name": "project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "build:tailwind": "tailwind build dist/css/main.css -o dist/css/output.css",
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --config webpack.config.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "tailwindcss": "^1.1.2"
-  },
-  "devDependencies": {
-    "html-webpack-plugin": "^3.2.0",
-    "webpack": "^4.41.0",
-    "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.2"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.22",
+    "request": "^2.88.0",
+    "socket.io": "^2.2.0"
   }
 }
