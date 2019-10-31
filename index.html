@@ -1,27 +1,52 @@
-<!doctype html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test</title>
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans|Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <button id="send" class="btn btn-success">Send</button>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <div class="banner">
+        what's the weather?
+    </div>
+    <div class="weather-submit">
+        <form>
+            <label for="">Location</label>
+            <input type="text">
+        </form>
+
+        <div class="button" onclick="">
+            Click for the weather!
+        </div>
+    </div>
+
+    <div class="now-playing">
+        Now playing...
+        <div class="music">
+            <!-- <div class="song">Chocolate Rain</div>
+            <div class="artist">Tayzon Day</div> -->
+        </div>
+    </div>
+
+    <script type="text/javascript" src="main.js"></script>
     <script>
-        document.querySelector('#send').addEventListener('click', async function() {
+        document.querySelector('.button').addEventListener('click', async function() {
             let weather = await fetch('https://api.weatherbit.io/v2.0/current?postal_code=10306&key=2f0e54c931ee427ba5e8632bcd308d25')
             weather = await weather.json()
             console.log(weather.data[0]/*.weather.code*/)
-            let response = await fetch('/messages')
+            let response = await fetch('/messages', {
+                method: 'POST',
+                body: JSON.stringify(weather.data[0].weather),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+                
+            })
             console.log(await response.json())
         })
     </script>
 </body>
 </html>
-
-

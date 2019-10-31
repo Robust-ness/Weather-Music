@@ -6,8 +6,8 @@ var port = process.env.PORT || 8888
 var request = require('request')
 
 app.use(express.static(__dirname))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
+   .use(bodyParser.json())
+   .use(bodyParser.urlencoded({extended: false}));
 
 
 
@@ -37,21 +37,26 @@ app.all('/messages', function(req, res, next) {
   });
 
 app.get('/messages', (req, res) =>{
-    request.post(authOptions, function(error, response, body) {
-        if (!error && response.statusCode === 200) {
-          var token = body.access_token;
-          var options = {
-            url: 'https://api.spotify.com/v1/albums/41GuZcammIkupMPKH2OJ6I',
-            headers: {
-              'Authorization': 'Bearer ' + token
-            },
-            json: true
-          };
-          request.get(options, function(error, response, body) {
-            res.send(body.tracks.items)
-          });
-        }
-    });
+  res.send({'nice try': 'asshole'})
+})
+
+app.post('/messages', (req, res) => {
+  request.post(authOptions, function(error, response, body) {
+    if (!error && response.statusCode === 200) {
+      console.log(req.body)
+      var token = body.access_token;
+      var options = {
+        url: 'https://api.spotify.com/v1/albums/41GuZcammIkupMPKH2OJ6I',
+        headers: {
+          'Authorization': 'Bearer ' + token
+        },
+        json: true
+      };
+      request.get(options, function(error, response, body) {
+        res.send(body.tracks.items)
+      });
+    }
+  });
 })
 
 
