@@ -86,9 +86,21 @@
 .music{
     margin: 5vh 0;
     text-transform: uppercase;
+    
+}
+
+.song{
     animation-name:widen;
     animation-duration: 5s;
     letter-spacing: 1rem;
+    margin-bottom:-5vh;
+}
+
+.artist{
+    animation-name:widen;
+    animation-duration: 5s;
+    letter-spacing: 1rem;
+    margin-top:0;
 }
 
 .song, .artist{
@@ -98,6 +110,17 @@
     text-align:center;
     font-size:2rem;
     
+}
+
+.display-weather{
+    height:40%;
+    display:flex;
+    justify-content: space-around;
+}
+
+.display-weather .condition, .temperature, .humidity, .rain-chance, .sunrise, .sunset, .wind{
+    font-size:1.5rem;
+    text-decoration: underline;
 }
 
 form{
@@ -123,8 +146,10 @@ form input{
 @keyframes widen{
     from{
         letter-spacing: 0;
+        color:white;
     }
     to{
         letter-spacing: 1rem;
+        color:black;
     }
 }
