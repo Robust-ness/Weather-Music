@@ -54,7 +54,6 @@
 
 .button{
     width:40vh;
-    color:lightgray;
     background-color:white;
     color:black;
     padding:2.5vh;
@@ -112,15 +111,42 @@
     
 }
 
+.music-link{
+    background-color: black;
+    color:white;
+    width:40vh;
+    padding:2.5vh;
+    border-radius:5vh;
+    text-align:center;
+    margin:auto;
+}
+
+.music-link:hover{
+    background-color:rgb(50, 50, 50);
+    cursor:pointer;
+}
+
 .display-weather{
-    height:40%;
+    height:20%;
     display:flex;
     justify-content: space-around;
 }
 
 .display-weather .condition, .temperature, .humidity, .rain-chance, .sunrise, .sunset, .wind{
     font-size:1.5rem;
-    text-decoration: underline;
+    margin-top:1vh;
+    text-align:center;
+}
+
+.display-weather .condition-desc, .temperature-desc, .humidity-desc, .rain-chance-desc, .sunrise-desc, .wind-desc{
+    font-size:1rem;
+    margin-top:2.5vh;
+    text-align:center;
+}
+
+.condition-desc{
+    width:80%;
+    margin:0 auto;
 }
 
 form{
