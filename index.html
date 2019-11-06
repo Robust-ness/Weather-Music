@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans|Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="banner">
+        what's the weather?
+    </div>
+    <div class="weather-submit">
+        <form>
+            <label>Location</label>
+            <input type="text">
+        </form>
+
+        <div class="button">
+            Click for the weather!
+        </div>
+    </div>
+
+    <div class="now-playing">
+        Now playing...
+        <div class="music">
+
+        </div>
+        <div class="music-link">
+            Click Here to See the Song!
+        </div>
+    </div>
+
+    <div class="display-weather">
+        <div class="condition">
+            Condition
+            <hr>
+            <div class="condition-desc">
+                sorta cold with a slight chance of rain
+            </div>
+        </div>
+
+        <div class="temperature">
+            Temperature
+            <hr>
+            <div class="temperature-desc">
+                -37°
+            </div>
+        </div>
+
+        <div class="humidity">
+            Humidity
+            <hr>
+            <div class="humidity-desc">
+                10%
+            </div>
+        </div>
+
+        <div class="wind">
+            Wind
+            <hr>
+            <div class="wind-desc">
+                56.4mph
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="main.js"></script>
+    <script>
+        document.querySelector('.button').addEventListener('click', async function() {
+            let weather = await fetch('https://api.weatherbit.io/v2.0/current?postal_code=10306&key=2f0e54c931ee427ba5e8632bcd308d25')
+            weather = await weather.json()
+            console.log(weather.data[0]/*.weather.code*/)
+            document.querySelector('.condition-desc').innerHTML = weather.data[0].weather.description
+            document.querySelector('.temperature-desc').innerHTML = weather.data[0].temp + ' &deg;C | Feels like ' + weather.data[0].app_temp + ' &deg;C'
+            document.querySelector('.humidity-desc').innerHTML = weather.data[0].rh + '&percnt;'
+            document.querySelector('.wind-desc').innerHTML = (Math.round(weather.data[0].wind_spd * 2.237 * 100)/100) + ' mph'
+            
+            let response = await fetch('/messages', {
+                method: 'POST',
+                body: JSON.stringify(weather.data[0].weather),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+                
+            })
+            response = await response.json()
+            document.querySelector('.music').insertAdjacentHTML('beforebegin', `<iframe src="https://open.spotify.com/embed/track/${response.id}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
+        })
+    </script>
+</body>
+</html>
