@@ -33,10 +33,10 @@ var authOptions = {
   
 
 app.all('/messages', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", process.env.address);
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next()
-  });
+  res.header("Access-Control-Allow-Origin", process.env.address);
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next()
+});
 
 app.get('/messages', (req, res) =>{
   res.send({'nice try': 'asshole'})
@@ -54,13 +54,15 @@ app.post('/messages', (req, res) => {
           'Authorization': 'Bearer ' + token
         },
         json: true
-      };
+      }
       request.get(options, function(error, response, body) {
-        //console.log(body.tracks.items[getRandomIntInclusive(0, body.tracks.items.length - 1)])
         res.send(body.tracks.items[getRandomIntInclusive(0, body.tracks.items.length - 1)].track);
+      })
     }
-  });
+  })
 })
+  
+
 
 
 var server = http.listen(port, () => {
