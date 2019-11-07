@@ -66,7 +66,6 @@
             </div>
         </div>
     </div>
-
     <script type="text/javascript" src="main.js"></script>
     <script>
         document.querySelector('.button').addEventListener('click', async function() {
@@ -74,7 +73,7 @@
             weather = await weather.json()
             console.log(weather.data[0]/*.weather.code*/)
             document.querySelector('.condition-desc').innerHTML = weather.data[0].weather.description
-            document.querySelector('.temperature-desc').innerHTML = weather.data[0].temp + ' &deg;C | Feels like ' + weather.data[0].app_temp + ' &deg;C'
+            document.querySelector('.temperature-desc').innerHTML = weather.data[0].temp + ' &deg;C' + (weather.data[0].temp != weather.data[0].app_temp ? ' | Feels like ' + weather.data[0].app_temp + ' &deg;C' : '')
             document.querySelector('.humidity-desc').innerHTML = weather.data[0].rh + '&percnt;'
             document.querySelector('.wind-desc').innerHTML = (Math.round(weather.data[0].wind_spd * 2.237 * 100)/100) + ' mph'
             
@@ -87,7 +86,7 @@
                 
             })
             response = await response.json()
-            document.querySelector('.music').insertAdjacentHTML('beforebegin', `<iframe src="https://open.spotify.com/embed/track/${response.id}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
+            document.querySelector('.music').insertAdjacentHTML('beforebegin', `<div class='now-playing'><iframe src="https://open.spotify.com/embed/track/${response.id}" width="333rem" height="333rem" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>`)
         })
     </script>
 </body>

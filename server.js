@@ -56,9 +56,8 @@ app.post('/messages', (req, res) => {
         json: true
       };
       request.get(options, function(error, response, body) {
-        console.log(error, response)
-        res.send(body.tracks.items[getRandomIntInclusive(0, body.tracks.items.length - 1)].track)
-      });
+        //console.log(body.tracks.items[getRandomIntInclusive(0, body.tracks.items.length - 1)])
+        res.send(body.tracks.items[getRandomIntInclusive(0, body.tracks.items.length - 1)].track);
     }
   });
 })
