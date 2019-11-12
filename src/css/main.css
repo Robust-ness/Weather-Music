@@ -39,7 +39,7 @@
     height:20vh;
     background-color:white;
     margin:5vh 0;
-    font-size:1rem;
+    font-size:4vh;
     text-align:center;
     color:black
 }
@@ -51,13 +51,13 @@
 }
 
 .button{
-    width: flex;
     background-color:white;
     color:black;
     padding:2.5vh;
     border-radius:5vh;
     text-align:center;
-    margin:1rem auto;
+    margin:4vh auto;
+    font-size:1.5vw;
 }
 
 .buttonblack{
@@ -69,7 +69,7 @@
     text-align:center;
     align-content: center;
     align-self: center;
-    margin:1rem auto;
+    margin:4vh auto;
 }
 .buttonblack:hover{
     background-color:darkslategray;
@@ -84,7 +84,7 @@
 }
 
 .weather-submit{
-    margin: 1rem;
+    margin: 4vh;
     text-align:center;
 }
 
@@ -93,7 +93,7 @@
     color:black;
     height:auto;
     font-family: 'Staatliches';
-    font-size:3rem;
+    font-size:8vh;
     padding-left:5vh;
 }
 
@@ -122,7 +122,7 @@
     color:black;
     font-family:'Lato';
     text-align:center;
-    font-size:2rem;
+    font-size:8vh;
 }
 
 .music-link{
@@ -148,24 +148,24 @@
 }
 
 .display-weather .condition, .temperature, .humidity, .rain-chance, .sunrise, .sunset, .wind{
-    font-size:1.5rem;
+    font-size:2vw;
     margin-top:1vh;
     text-align:center;
 }
 
 .display-weather .condition-desc, .temperature-desc, .humidity-desc, .rain-chance-desc, .sunrise-desc, .wind-desc{
-    font-size:1rem;
-    margin-top:2.5vh;
+    font-size:1vw;
+    margin-top:2vh;
     text-align:center;
 }
 
 .condition-desc{
     width:80%;
-    margin:1rem auto;
+    margin:4vh auto;
 }
 
 form{
-    margin:1rem 0;
+    margin:4vh 0;
     display:flex;
     flex-direction:column;  
 }
