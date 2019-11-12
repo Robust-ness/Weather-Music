@@ -1,6 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 *{
     margin:0;
     background-color:black;
@@ -15,7 +12,8 @@
     font-size:7vh;
     color:black;
     font-family: 'Staatliches';
-    padding:4vh 0;
+    padding:4vh auto;
+    margin: auto auto;
     text-align:center;
 }
 
@@ -53,13 +51,30 @@
 }
 
 .button{
-    width:40vh;
+    width: flex;
     background-color:white;
     color:black;
     padding:2.5vh;
     border-radius:5vh;
     text-align:center;
-    margin:auto;
+    margin:1rem auto;
+}
+
+.buttonblack{
+    width: flex;
+    background-color:black;
+    color:white;
+    padding:2.5vh;
+    border-radius:5vh;
+    text-align:center;
+    align-content: center;
+    align-self: center;
+    margin:1rem auto;
+}
+.buttonblack:hover{
+    background-color:darkslategray;
+    color:white;
+    cursor:pointer;
 }
 
 .button:hover{
@@ -69,14 +84,14 @@
 }
 
 .weather-submit{
-    margin: 10vh;
+    margin: 1rem;
     text-align:center;
 }
 
 .now-playing{
     background-color:white;
     color:black;
-    height:40vh;
+    height:auto;
     font-family: 'Staatliches';
     font-size:3rem;
     padding-left:5vh;
@@ -111,19 +126,20 @@
 }
 
 .music-link{
-    background-color: black;
+    background-color: white;
+    /* 
     color:white;
     width:40vh;
     padding:2.5vh;
-    border-radius:5vh;
+    border-radius:5vh; */
     text-align:center;
-    margin:auto;
+    /* margin:1rem auto; */
 }
 
-.music-link:hover{
+/* .music-link:hover{
     background-color:rgb(50, 50, 50);
     cursor:pointer;
-}
+} */
 
 .display-weather{
     height:auto;
@@ -145,11 +161,11 @@
 
 .condition-desc{
     width:80%;
-    margin:0 auto;
+    margin:1rem auto;
 }
 
 form{
-    margin:5vh 0;
+    margin:1rem 0;
     display:flex;
     flex-direction:column;  
 }
