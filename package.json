@@ -1,22 +1,35 @@
 {
-  "name": "intro-to-webpack-modules",
+  "name": "pack",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:tailwind": "tailwind build dist/css/main.css -o dist/css/output.css",
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack",
+    "start:dev": "webpack-dev-server"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "tailwindcss": "^1.1.2"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "request": "^2.88.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
-    "webpack": "^4.41.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "url-loader": "^2.2.0",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.2"
+    "webpack-dev-server": "^3.11.0"
   }
 }
